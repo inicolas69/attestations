@@ -71,8 +71,8 @@
             <input required id="city" name="city" placeholder="Bordeaux" type="text" value="{{profile.city}}"
               autocomplete="off">
 
-            <label for="delay">Delai</label>
-            <input required id="delay" name="delay" placeholder="10" type="number" autocomplete="off">
+            <label for="delay">Delai en minutes</label>
+            <input id="delay" name="delay" type="number" autocomplete="off" value="0">
 
             <label for="reasons" class="reasons">Raisons</label>
             <select required name="reasons" id="reasons" size={{available_reasons.length}} multiple>
