@@ -1,0 +1,34 @@
+raisons:
+  - achats
+
+gens:
+  - prénom: christian
+    nom: glacet
+    date_naissance: 31/07/1986
+    lieu_naissance: Seine St. Denis
+    # email: christian.glacet@gmail.com #mon.email@gmail.com
+
+  - prénom: carole
+    nom: lancuentra
+    date_naissance: 12/03/1989
+    lieu_naissance: Talence
+    # email: mon.autre.email@gmail.com
+
+lieux:
+  maison:
+    adresse: 48 rue Camille Pelletan, bat. B, apt. 45
+    code_postal: 33400
+    ville: Talence
+
+
+# Pas utilisé, juste pour faire des copier-coller: 
+autres_raisons:
+  - travail
+  - achats 		     
+  - sante 		     
+  - famille 		   
+  - handicap 		   
+  - sport_animaux  
+  - convocation 	 
+  - missions 		   
+  - enfants 		   
