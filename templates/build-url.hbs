@@ -2,230 +2,241 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-   scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
-    <link rel="stylesheet" href="/static/css/main.css">
-    <title>Attestations faciles</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-   scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <title>Attestations faciles</title>
 </head>
 
 <body>
-    <div id="box">
-        <h1>Attestations faciles</h1>
-        <div id="github">
-            <a href="https://github.com/cglacet/attestations">
-                <svg height="16" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                <span>code source</span>
-            </a>
-        </div>
-        <div id='explanations'>
-            <p>
-                <b>Remplissez une seule fois</b> et ajoutez la page courante à vos favoris.
-                <b>La prochaine fois</b>, ouvrez simplement votre favoris pour générer une nouvelle attestation.
-            </p>
-            
-            <p class='tips'>
-                Vous pouvez même ajouter directement la <a id="url-top">page de génération d'attestations</a> et n'avoir 
-                plus qu'un clic à faire.
-            </p>
-        </div>
-        <div id="box-content">
-            <div id="form-part" class="center">
-                {{!-- <div id="url-div">
+  <div id="box">
+    <h1>Attestations faciles</h1>
+    <div id="github">
+      <a href="https://github.com/cglacet/attestations">
+        <svg height="16" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+        <span>code source</span>
+      </a>
+    </div>
+    <div id='explanations'>
+      <p>
+        <b>Remplissez une seule fois</b> et ajoutez la page courante à vos favoris.
+        <b>La prochaine fois</b>, ouvrez simplement votre favoris pour générer une nouvelle attestation.
+      </p>
+
+      <p class='tips'>
+        Vous pouvez même ajouter directement la <a id="url-top">page de génération d'attestations</a> et n'avoir
+        plus qu'un clic à faire.
+      </p>
+    </div>
+    <div id="box-content">
+      <div id="form-part" class="center">
+        {{!-- <div id="url-div">
                     Votre URL
                     <p id="url-container">
                         <a id="url"> - </a>
                     </p>
                 </div> --}}
-                <form onSubmit="formSubmit(event); return true;" id="form">
-                    <div id="inputs">
-                        <label for="firstname">Prénom</label>
-                        <input required type="text" id="firstname" name="firstname" placeholder="Prénom" value="{{profile.firstname}}" autocomplete="given-name">
-                        
-                        <label for="lastname">Nom</label>
-                        <input required type="text" id="lastname" name="lastname" placeholder="Nom" value="{{profile.lastname}}" autocomplete="family-name">
-                        
-                        <label for="birthday">Date de naissance</label>
-                        <input required id="birthday" name="birthday" lang="fr" placeholder="31/12/2000" type="date" date-format="dd/mm/yyyy" value="{{profile.birthday}}" autocomplete="bday"> 
+        <form onSubmit="formSubmit(event); return true;" id="form">
+          <div id="inputs">
+            <label for="firstname">Prénom</label>
+            <input required type="text" id="firstname" name="firstname" placeholder="Prénom"
+              value="{{profile.firstname}}" autocomplete="given-name">
 
-                        <label for="placeofbirth">Lieu de naissance</label>
-                        <input required id="placeofbirth" name="placeofbirth" placeholder="Paris" type="text" value="{{profile.placeofbirth}}" autocomplete="off">
+            <label for="lastname">Nom</label>
+            <input required type="text" id="lastname" name="lastname" placeholder="Nom" value="{{profile.lastname}}"
+              autocomplete="family-name">
 
-                        <label for="address">Adresse</label>
-                        <input required id="address" name="address" placeholder="12 rue des Lilas" type="text" value="{{profile.address}}" autocomplete="street-address">
+            <label for="birthday">Date de naissance</label>
+            <input required id="birthday" name="birthday" lang="fr" placeholder="31/12/2000" type="date"
+              date-format="dd/mm/yyyy" value="{{profile.birthday}}" autocomplete="bday">
 
-                        <label for="zipcode">Code postal</label>
-                        <input required id="zipcode" name="zipcode" placeholder="33000" type="text" value="{{profile.zipcode}}" autocomplete="postal-code">
+            <label for="placeofbirth">Lieu de naissance</label>
+            <input required id="placeofbirth" name="placeofbirth" placeholder="Paris" type="text"
+              value="{{profile.placeofbirth}}" autocomplete="off">
 
-                        <label for="city">Ville</label>
-                        <input required id="city" name="city" placeholder="Bordeaux" type="text" value="{{profile.city}}" autocomplete="off">
+            <label for="address">Adresse</label>
+            <input required id="address" name="address" placeholder="12 rue des Lilas" type="text"
+              value="{{profile.address}}" autocomplete="street-address">
 
-                        <label for="reasons" class="reasons">Raisons</label>
-                        <select required name="reasons" id="reasons" size={{available_reasons.length}} multiple>
-                            {{#each available_reasons}}
-                                <option 
-                                    value="{{this.code}}"
-                                    {{#ifIn this.code ../profile.reasons}}
-                                        selected
-                                    {{/ifIn}}
-                                >
-                                    {{this.code}}
-                                    {{!-- this.label --}}
-                                </option> 
-                            {{/each}}
-                        </select>
-                    </div>
-                    
-                    {{!-- <div id="submit-div">
+            <label for="zipcode">Code postal</label>
+            <input required id="zipcode" name="zipcode" placeholder="33000" type="text" value="{{profile.zipcode}}"
+              autocomplete="postal-code">
+
+            <label for="city">Ville</label>
+            <input required id="city" name="city" placeholder="Bordeaux" type="text" value="{{profile.city}}"
+              autocomplete="off">
+
+            <label for="delay">Delai</label>
+            <input required id="delay" name="delay" placeholder="10" type="number" autocomplete="off">
+
+            <label for="reasons" class="reasons">Raisons</label>
+            <select required name="reasons" id="reasons" size={{available_reasons.length}} multiple>
+              {{#each available_reasons}}
+              <option value="{{this.code}}" {{#ifIn this.code ../profile.reasons}} selected {{/ifIn}}>
+                {{this.code}}
+                {{!-- this.label --}}
+              </option>
+              {{/each}}
+            </select>
+          </div>
+
+          {{!-- <div id="submit-div">
                         L'URL générée permettra de générer automatiquement une attestation
                         datée et remplie:
                         <input type="submit" value="Attestation"><br>
                     </div> --}}
-                </form> 
-                <p id="url-container">
-                    Générez des attestations grâce à <br><a id="url">votre générateur d'attestations</a>
-                </p>
-                <div id="url-copy-div" class="center">
-                    <button id="url-clipboard" class="btn" data-clipboard-text="">
-                        Copier l'adresse du générateur <img src="https://clipboardjs.com/assets/images/clippy.svg" width="13" alt="Copy to clipboard">
-                    </button>
-                </div>
-            </div>
-            <div id="qrcodes-container">
-                <div class="qrcode-div">
-                    <h2>Générer vos attestations</h2>
-                    <p>(<span id="reasons-list"></span>)</p>
-                    <a id="url-get">
-                        <canvas id="qrcode-get"></canvas>
-                    </a>
-                </div>
-                <div class="qrcode-div">
-                    <h2>Cette page</h2>
-                    <p>(si vous voulez plus tard modifier vos options)</p>
-                    <a id="url-set">
-                        <canvas id="qrcode-set"></canvas>
-                    </a>
-                </div>
-            </div>
+        </form>
+        <p id="url-container">
+          Générez des attestations grâce à <br><a id="url">votre générateur d'attestations</a>
+        </p>
+        <div id="url-copy-div" class="center">
+          <button id="url-clipboard" class="btn" data-clipboard-text="">
+            Copier l'adresse du générateur <img src="https://clipboardjs.com/assets/images/clippy.svg" width="13"
+              alt="Copy to clipboard">
+          </button>
         </div>
+      </div>
+      <div id="qrcodes-container">
+        <div class="qrcode-div">
+          <h2>Générer vos attestations</h2>
+          <p>(<span id="reasons-list"></span>)</p>
+          <a id="url-get">
+            <canvas id="qrcode-get"></canvas>
+          </a>
+        </div>
+        <div class="qrcode-div">
+          <h2>Cette page</h2>
+          <p>(si vous voulez plus tard modifier vos options)</p>
+          <a id="url-set">
+            <canvas id="qrcode-set"></canvas>
+          </a>
+        </div>
+      </div>
     </div>
+  </div>
 </body>
 
 <script src="../static/qrcode.min.js"></script>
 <script type="text/javascript">
-    new ClipboardJS('.btn');
-    const BASE_URL = window.location.origin;
-    const form = document.getElementById("form");
-    const MESSAGE_INCOMPLETE = "Vous n'avez pas fini de remplir le formulaire";
-    const QR_CODE_OPTIONS = {
-        color: {
-            dark:"#000",
-            light:"#FFF"
-        }
+  new ClipboardJS('.btn');
+  const BASE_URL = window.location.origin;
+  const form = document.getElementById("form");
+  const MESSAGE_INCOMPLETE = "Vous n'avez pas fini de remplir le formulaire";
+  const QR_CODE_OPTIONS = {
+    color: {
+      dark: "#000",
+      light: "#FFF"
     }
-    const QR_CODE_OPTIONS_ERROR = {
-        color: {
-            dark:"#AAA",
-            light:"#FFF"
-        }
+  }
+  const QR_CODE_OPTIONS_ERROR = {
+    color: {
+      dark: "#AAA",
+      light: "#FFF"
     }
+  }
 
-    form.addEventListener("input", onFormChange);
-    onFormChange();
+  form.addEventListener("input", onFormChange);
+  onFormChange();
 
-    function formSubmit(event){
-        const url = buildURL('get');
-        window.open();
-        event.preventDefault();
+  function formSubmit(event) {
+    const url = buildURL('get');
+    window.open();
+    event.preventDefault();
+  }
+
+  function onFormChange() {
+    const urlGet = buildURL('get');
+    const urlSet = buildURL('set');
+
+    let QRCodeOptions = QR_CODE_OPTIONS;
+    if (!areRequiredFilled()) {
+      QRCodeOptions = QR_CODE_OPTIONS_ERROR
+      document.getElementById('url-clipboard').setAttribute('data-clipboard-text', urlSet);
     }
-
-    function onFormChange(){
-        const urlGet = buildURL('get');
-        const urlSet = buildURL('set');
-
-        let QRCodeOptions = QR_CODE_OPTIONS;
-        if (!areRequiredFilled()){
-            QRCodeOptions = QR_CODE_OPTIONS_ERROR
-            document.getElementById('url-clipboard').setAttribute('data-clipboard-text', urlSet);
-        }
-        else {
-            document.getElementById('url-clipboard').setAttribute('data-clipboard-text', urlGet);
-        }
-
-        document.getElementById('url').setAttribute('href', urlGet);
-        document.getElementById('url-top').setAttribute('href', urlGet);
-        document.getElementById('url-get').setAttribute('href', urlGet);
-        document.getElementById('url-set').setAttribute('href', urlSet);
-
-        QRCode.toCanvas(document.getElementById('qrcode-get'), urlGet, QRCodeOptions);
-        QRCode.toCanvas(document.getElementById('qrcode-set'), urlSet, QRCodeOptions);
-
-        const reasons = getSelectValues(document.getElementById('reasons'));
-        if (reasons && reasons.length > 0){
-            document.getElementById('reasons-list').innerHTML = reasons.join(', ');
-        }
-        else {
-            document.getElementById('reasons-list').innerHTML = "Aucune raison !"
-        }
-
-        if (window.history.replaceState) {
-            window.history.replaceState(`${BASE_URL}/set`, document.title, urlSet);
-        }
+    else {
+      document.getElementById('url-clipboard').setAttribute('data-clipboard-text', urlGet);
     }
 
-    function buildURL(endpoint){
-        const params = {
-            'firstname': value('firstname'),
-            'lastname': value('lastname'),
-            'birthday': toFrenchDate(value('birthday')),
-            'placeofbirth': value('placeofbirth'),
-            'address': value('address'),
-            'zipcode': value('zipcode'),
-            'city': value('city'),
-            'reasons': getSelectValues(document.getElementById('reasons')),
-        }
-        const paramString = new URLSearchParams(params)
-        return `${BASE_URL}/${endpoint}?${paramString.toString()}`;
+    document.getElementById('url').setAttribute('href', urlGet);
+    document.getElementById('url-top').setAttribute('href', urlGet);
+    document.getElementById('url-get').setAttribute('href', urlGet);
+    document.getElementById('url-set').setAttribute('href', urlSet);
+
+    QRCode.toCanvas(document.getElementById('qrcode-get'), urlGet, QRCodeOptions);
+    QRCode.toCanvas(document.getElementById('qrcode-set'), urlSet, QRCodeOptions);
+
+    const reasons = getSelectValues(document.getElementById('reasons'));
+    if (reasons && reasons.length > 0) {
+      document.getElementById('reasons-list').innerHTML = reasons.join(', ');
+    }
+    else {
+      document.getElementById('reasons-list').innerHTML = "Aucune raison !"
     }
 
-    function toFrenchDate(yyyy_mm_dd){
-        try {
-            const [yyyy, mm, dd] = yyyy_mm_dd.split('-');
-            return `${dd}/${mm}/${yyyy}`;
-        }
-        catch (e) {
-            console.log("Error", e);
-            return yyyy_mm_dd;
-        }
+    if (window.history.replaceState) {
+      window.history.replaceState(`${BASE_URL}/set`, document.title, urlSet);
     }
+  }
 
-    function areRequiredFilled() {
-        const form = document.getElementById('form');
-        for(const element of form.elements){
-            if(element.hasAttribute('required') && element.value == ''){
-                return false;
-            }
-        }
-        return true;
-    };
-
-    function value(id){
-        return document.getElementById(id).value;
+  function buildURL(endpoint) {
+    const params = {
+      'firstname': value('firstname'),
+      'lastname': value('lastname'),
+      'birthday': toFrenchDate(value('birthday')),
+      'placeofbirth': value('placeofbirth'),
+      'address': value('address'),
+      'zipcode': value('zipcode'),
+      'city': value('city'),
+      'delay': value('delay'),
+      'reasons': getSelectValues(document.getElementById('reasons')),
     }
+    const paramString = new URLSearchParams(params)
+    return `${BASE_URL}/${endpoint}?${paramString.toString()}`;
+  }
 
-    function getSelectValues(select) {
-        const result = [];
-        const options = select && select.options;
-        let opt;
-        for (var i=0, iLen=options.length; i<iLen; i++) {
-            opt = options[i];
-
-            if (opt.selected) {
-                result.push(opt.value || opt.text);
-            }
-        }
-        return result;
+  function toFrenchDate(yyyy_mm_dd) {
+    try {
+      const [yyyy, mm, dd] = yyyy_mm_dd.split('-');
+      return `${dd}/${mm}/${yyyy}`;
     }
+    catch (e) {
+      console.log("Error", e);
+      return yyyy_mm_dd;
+    }
+  }
+
+  function areRequiredFilled() {
+    const form = document.getElementById('form');
+    for (const element of form.elements) {
+      if (element.hasAttribute('required') && element.value == '') {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  function value(id) {
+    return document.getElementById(id).value;
+  }
+
+  function getSelectValues(select) {
+    const result = [];
+    const options = select && select.options;
+    let opt;
+    for (var i = 0, iLen = options.length; i < iLen; i++) {
+      opt = options[i];
+
+      if (opt.selected) {
+        result.push(opt.value || opt.text);
+      }
+    }
+    return result;
+  }
 </script>
 
 </html>
