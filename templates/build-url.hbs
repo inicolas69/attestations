@@ -75,7 +75,7 @@
             <input id="delay" name="delay" type="number" autocomplete="off" value="0">
 
             <label for="reasons" class="reasons">Raisons</label>
-            <select required name="reasons" id="reasons" size={{available_reasons.length}} multiple>
+            <select required name="reasons" id="reasons" size={{available_reasons.length}} >
               {{#each available_reasons}}
               <option value="{{this.code}}" {{#ifIn this.code ../profile.reasons}} selected {{/ifIn}}>
                 {{this.code}}
