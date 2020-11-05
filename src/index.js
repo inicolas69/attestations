@@ -55,7 +55,7 @@ async function certificateDownload(context){
         const reasons = context.query.reasons.split(',');
         return await downloadPDF(profile, reasons);
     }
-    catch (error){ 
+    catch (error){
         return {'error': `${error}`};
     }
 }
@@ -91,7 +91,7 @@ async function certificateNoConfig(context){
 
 async function buildURL(context){
     const options = {
-        'profile': context.query, 
+        'profile': context.query,
         'available_reasons': Array.from(reasonFields())
     }
     if (!options.profile.reasons || options.profile.reasons.length < 1){
